@@ -5,8 +5,10 @@ const db = require("./config/dbConnection");
 const app = express();
 const path = require('path');
 const morgan = require('morgan');
+const cors = require('cors');
 
 // Middleware
+app.use(cors());
 app.use(morgan('dev'))
 app.use(express.urlencoded());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")))
